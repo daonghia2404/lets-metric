@@ -7,10 +7,10 @@ import Select from '@/components/Select';
 import Button from '@/components/Button';
 import DatePicker from '@/components/DatePicker';
 import moment from 'moment/moment';
+import { EFormat } from '@/common/enums';
 
 import { plansOptions, statusOptions } from './UsersFilter.data';
 import './UsersFilter.scss';
-import { EFormat } from '@/common/enums';
 
 const UsersFilter = ({ params, onFilter }) => {
   const [form] = Form.useForm();

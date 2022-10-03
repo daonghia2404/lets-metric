@@ -51,26 +51,28 @@ const AuthorizedInstance = (baseURL) => {
 
     if (responseStatus === EResponseCode.UNAUTHORIZED && originalRequest) {
       if (!isRefreshingAccessToken) {
-        isRefreshingAccessToken = true;
+        AuthHelpers.clearTokens();
 
-        refreshTokens()
-          .then((newAccessToken) => {
-            onTokenRefreshed(null, newAccessToken);
-          })
-          .catch((err) => {
-            onTokenRefreshed(new Error('Failed to refresh access token'));
-            const refreshTokenFailed = err?.response?.config?.url === ' '; // Config refresh token URL
+        // isRefreshingAccessToken = true;
 
-            if (refreshTokenFailed) {
-              AuthHelpers.clearTokens();
-              // Navigate to Auth Layout
-              navigate(LayoutPaths.Auth);
-            }
-          })
-          .finally(() => {
-            isRefreshingAccessToken = false;
-            tokenSubscribers = [];
-          });
+        // refreshTokens()
+        //   .then((newAccessToken) => {
+        //     onTokenRefreshed(null, newAccessToken);
+        //   })
+        //   .catch((err) => {
+        //     onTokenRefreshed(new Error('Failed to refresh access token'));
+        //     const refreshTokenFailed = err?.response?.config?.url === ' '; // Config refresh token URL
+
+        //     if (refreshTokenFailed) {
+        //       AuthHelpers.clearTokens();
+        //       // Navigate to Auth Layout
+        //       navigate(LayoutPaths.Auth);
+        //     }
+        //   })
+        //   .finally(() => {
+        //     isRefreshingAccessToken = false;
+        //     tokenSubscribers = [];
+        //   });
       }
 
       const storeOriginalRequest = new Promise((resolve, reject) => {

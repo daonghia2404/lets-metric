@@ -10,6 +10,7 @@ import { renderSortByString } from '@/utils/functions';
 import { getUsersAction } from '@/redux/actions';
 
 import './Users.scss';
+import moment from 'moment/moment';
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const Users = () => {
   const [getUsersParamsRequest, setGetUsersParamsRequest] = useState({
     page: DEFAULT_PAGE,
     limit: DEFAULT_PAGE_SIZE,
+    created_at_min: moment().startOf('week'),
+    created_at_max: moment().endOf('week'),
   });
 
   const dataBreadcrumb = [
