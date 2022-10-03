@@ -1,0 +1,61 @@
+@import '@/assets/styles/_global.scss';
+
+.Login {
+  background: $link-water;
+  padding: 0 1.6rem;
+  min-height: 100vh;
+  background: url('../../../assets/images/bg-login.png');
+  background-size: cover;
+  background-position: center;
+
+  &-header {
+    padding: .8rem 1.2rem;
+
+    &-language {
+      width: 3.2rem;
+      height: 3.2rem;
+
+      .Icon {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
+  }
+
+  &-logo {
+    max-width: 20.5rem;
+    margin: 0 auto 1.6rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-title {
+    font-size: 1.4rem;
+    color: $limeade;
+    padding: 1.2rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba($black, 0.03);
+    margin-bottom: 2.2rem;
+
+    span {
+      position: relative;
+      padding: .4rem 0;
+      display: block;
+      border-bottom: 2px solid $limeade;
+    }
+  }
+
+  &-wrapper {
+    max-width: 36rem;
+    width: 100%;
+    margin: 4rem auto 0;
+  }
+
+  &-form {
+    .ant-input-affix-wrapper>input.ant-input {
+      text-align: center;
+    }
+  }
+}
