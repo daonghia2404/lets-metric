@@ -1,4 +1,4 @@
-import { Paths } from '@/pages/routers';
+import { LayoutPaths, Paths } from '@/pages/routers';
 import {
   DashboardOutlined,
   UserOutlined,
@@ -25,10 +25,16 @@ export const dataSidebar = [
     title: 'User',
     icon: <UserOutlined />,
     link: Paths.Users,
+    activePaths: [`${LayoutPaths.Admin}${Paths.Users}`],
     disabled: false,
     children: [
       { key: 'user-1', link: Paths.Users, title: 'Create User' },
-      { key: 'user-2', link: Paths.Users, title: 'User Management' },
+      {
+        key: 'user-2',
+        link: Paths.Users,
+        title: 'User Management',
+        activePaths: [`${LayoutPaths.Admin}${Paths.Users}`],
+      },
     ],
   },
   {

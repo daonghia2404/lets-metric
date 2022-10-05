@@ -1,3 +1,5 @@
+@import '@/assets/styles/_global.scss';
+
 .Omega-Date-Range {
   width: 572px;
   min-height: 452px;
@@ -81,4 +83,13 @@
 .Polaris-Popover__Content {
   max-width: unset;
   max-height: unset;
+
+  .Polaris-Button--primary,
+  .Polaris-Button--destructive {
+    background: $dodger-blue;
+  }
+
+  .Polaris-DatePicker__Day--selected {
+    background: $dodger-blue;
+  }
 }
