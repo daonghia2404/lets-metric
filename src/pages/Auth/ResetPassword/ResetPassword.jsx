@@ -38,9 +38,9 @@ const ResetPassword = () => {
           password.
         </div>
         <Form layout="vertical" form={form} className="ResetPassword-form" onFinish={handleSubmit}>
-          <Form.Item name="username" rules={[validationRules.required()]}>
+          {/* <Form.Item name="username" rules={[validationRules.required()]}>
             <Input prefix={<UserOutlined />} placeholder="Username " size="large" />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item name="email" rules={[validationRules.required(), validationRules.email()]}>
             <Input prefix={<MailOutlined />} placeholder="Email " size="large" />
           </Form.Item>

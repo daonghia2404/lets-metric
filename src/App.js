@@ -13,7 +13,7 @@ const App = () => {
       <div className="App">
         <Router primary={false}>
           <Admin path={LayoutPaths.Admin}>
-            <ProtectedRoute path={Paths.Users} component={Pages.Users} />
+            <PublicRoute path={Paths.Users} component={Pages.Users} />
             <Redirect noThrow from={Paths.Rest} to={`${LayoutPaths.Admin}${Paths.Users}`} />
           </Admin>
 

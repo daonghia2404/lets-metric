@@ -8,6 +8,7 @@ import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import Google from './Google';
 import Global from './Global';
+import Calendar from './Calendar';
 
 const Icon = ({ name, className, color, onClick }) => {
   const renderIcon = () => {
@@ -20,6 +21,8 @@ const Icon = ({ name, className, color, onClick }) => {
         return <Google color={color} />;
       case EIconName.Global:
         return <Global color={color} />;
+      case EIconName.Calendar:
+        return <Calendar color={color} />;
       default:
         return <></>;
     }

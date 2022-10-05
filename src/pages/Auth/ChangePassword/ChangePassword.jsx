@@ -54,7 +54,10 @@ const ChangePassword = () => {
           onValuesChange={(_, values) => setFormValues(values)}
           onFinish={handleSubmit}
         >
-          <Form.Item name="password" rules={[validationRules.required()]}>
+          <Form.Item
+            name="password"
+            rules={[validationRules.required(), validationRules.minLength(5), validationRules.maxLength(60)]}
+          >
             <Input
               type="password"
               prefix={<LockOutlined />}
@@ -64,7 +67,12 @@ const ChangePassword = () => {
           </Form.Item>
           <Form.Item
             name="confirmPassword"
-            rules={[validationRules.required(), validationRules.confirmPassword(password)]}
+            rules={[
+              validationRules.required(),
+              validationRules.minLength(5),
+              validationRules.maxLength(60),
+              validationRules.confirmPassword(password),
+            ]}
           >
             <Input type="password" prefix={<LockOutlined />} placeholder="Confirm Password" size="large" />
           </Form.Item>

@@ -62,16 +62,25 @@ const Register = () => {
           onFinish={handleSubmit}
           onValuesChange={(_, values) => setFormValues(values)}
         >
-          <Form.Item name="username" rules={[validationRules.required()]}>
+          <Form.Item
+            name="username"
+            rules={[validationRules.required(), validationRules.minLength(4), validationRules.maxLength(60)]}
+          >
             <Input prefix={<UserOutlined />} placeholder="Username" size="large" />
           </Form.Item>
-          <Form.Item name="fullname" rules={[validationRules.required()]}>
+          <Form.Item
+            name="fullname"
+            rules={[validationRules.required(), validationRules.minLength(4), validationRules.maxLength(60)]}
+          >
             <Input prefix={<UserOutlined />} placeholder="Full Name" size="large" />
           </Form.Item>
           <Form.Item name="email" rules={[validationRules.required(), validationRules.email()]}>
             <Input prefix={<MailOutlined />} placeholder="Email" size="large" />
           </Form.Item>
-          <Form.Item name="password" rules={[validationRules.required()]}>
+          <Form.Item
+            name="password"
+            rules={[validationRules.required(), validationRules.minLength(5), validationRules.maxLength(60)]}
+          >
             <Input
               type="password"
               prefix={<LockOutlined />}
@@ -81,7 +90,12 @@ const Register = () => {
           </Form.Item>
           <Form.Item
             name="confirmPassword"
-            rules={[validationRules.required(), validationRules.confirmPassword(password)]}
+            rules={[
+              validationRules.required(),
+              validationRules.minLength(5),
+              validationRules.maxLength(60),
+              validationRules.confirmPassword(password),
+            ]}
           >
             <Input type="password" prefix={<LockOutlined />} placeholder="Confirm Password" size="large" />
           </Form.Item>

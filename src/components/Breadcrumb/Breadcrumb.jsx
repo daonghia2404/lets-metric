@@ -16,8 +16,9 @@ const Breadcrumb = ({ data = [], title }) => {
   return (
     <div className="Breadcrumb">
       <AntdBreadcrumb>
-        {data.map((item) => (
+        {data.map((item, index) => (
           <AntdBreadcrumb.Item
+            key={index}
             className={classNames({ 'cursor-pointer': item.link })}
             onClick={() => handleClickItem(item)}
           >

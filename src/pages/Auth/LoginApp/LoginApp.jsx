@@ -51,10 +51,16 @@ const LoginApp = () => {
           </span>
         </div>
         <Form layout="vertical" form={form} className="LoginApp-form" onFinish={handleSubmit}>
-          <Form.Item name="username" rules={[validationRules.required()]}>
+          <Form.Item
+            name="username"
+            rules={[validationRules.required(), validationRules.minLength(4), validationRules.maxLength(60)]}
+          >
             <Input prefix={<UserOutlined />} placeholder="Username" size="large" />
           </Form.Item>
-          <Form.Item name="password" rules={[validationRules.required()]}>
+          <Form.Item
+            name="password"
+            rules={[validationRules.required(), validationRules.minLength(5), validationRules.maxLength(60)]}
+          >
             <Input type="password" prefix={<LockOutlined />} placeholder="Password" size="large" />
           </Form.Item>
           <div className="LoginApp-remember flex justify-between items-center">

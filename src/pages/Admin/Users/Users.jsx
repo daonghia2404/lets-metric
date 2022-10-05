@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import moment from 'moment';
 
 import Breadcrumb from '@/components/Breadcrumb';
 import UsersFilter from '@/pages/Admin/Users/UsersFilter';
@@ -8,9 +9,9 @@ import UsersTable from '@/pages/Admin/Users/UsersTable';
 import { DEFAULT_PAGE_SIZE, DEFAULT_PAGE } from '@/common/constants';
 import { renderSortByString } from '@/utils/functions';
 import { getUsersAction } from '@/redux/actions';
+import { EFormat } from '@/common/enums';
 
 import './Users.scss';
-import moment from 'moment/moment';
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -18,8 +19,6 @@ const Users = () => {
   const [getUsersParamsRequest, setGetUsersParamsRequest] = useState({
     page: DEFAULT_PAGE,
     limit: DEFAULT_PAGE_SIZE,
-    created_at_min: moment().startOf('week'),
-    created_at_max: moment().endOf('week'),
   });
 
   const dataBreadcrumb = [
@@ -51,7 +50,9 @@ const Users = () => {
   };
 
   const getUsers = useCallback(() => {
-    dispatch(getUsersAction.request({ params: getUsersParamsRequest }));
+    if (getUsersParamsRequest.created_at_min && getUsersParamsRequest.created_at_max) {
+      dispatch(getUsersAction.request({ params: getUsersParamsRequest }));
+    }
   }, [dispatch, getUsersParamsRequest]);
 
   useEffect(() => {

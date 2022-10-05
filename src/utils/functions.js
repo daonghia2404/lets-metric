@@ -84,11 +84,11 @@ export const validationRules = {
     required: true,
     message: message || 'This field is required',
   }),
-  minLength: (message, length = 2) => ({
+  minLength: (length = 2, message) => ({
     min: length,
     message: message || `Enter characters at least ${length}`,
   }),
-  maxLength: (message, length = 10) => ({
+  maxLength: (length = 10, message) => ({
     max: length,
     message: message || `Enter characters at most ${length}`,
   }),

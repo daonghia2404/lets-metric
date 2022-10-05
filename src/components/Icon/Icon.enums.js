@@ -3,6 +3,7 @@ export const EIconName = {
   ArrowRight: 'ArrowRight',
   Google: 'Google',
   Global: 'Global',
+  Calendar: 'Calendar',
 };
 
 export const EIconColor = {

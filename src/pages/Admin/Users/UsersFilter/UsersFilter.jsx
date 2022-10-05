@@ -11,6 +11,7 @@ import { EFormat } from '@/common/enums';
 
 import { plansOptions, statusOptions } from './UsersFilter.data';
 import './UsersFilter.scss';
+import DatePickerRange from '@/components/DatePickerRange';
 
 const UsersFilter = ({ params, onFilter }) => {
   const [form] = Form.useForm();
@@ -42,7 +43,19 @@ const UsersFilter = ({ params, onFilter }) => {
               </Col>
               <Col>
                 <Form.Item label="Created Date">
-                  <DatePicker
+                  <DatePickerRange
+                    defaultValue={{ label: 'Last 7 days', value: '7' }}
+                    onSelectedDates={(values) => {
+                      const { start, end } = values || {};
+
+                      onFilter?.({
+                        ...params,
+                        created_at_min: start ? moment(start).format(EFormat.DATE_TIME) : undefined,
+                        created_at_max: end ? moment(end).format(EFormat.DATE_TIME) : undefined,
+                      });
+                    }}
+                  />
+                  {/* <DatePicker
                     value={[createdAtMinValue, createdAtMaxValue]}
                     picker="range"
                     allowClear
@@ -56,7 +69,7 @@ const UsersFilter = ({ params, onFilter }) => {
                         created_at_max: end ? moment(end).format(EFormat.DATE_TIME) : undefined,
                       });
                     }}
-                  />
+                  /> */}
                 </Form.Item>
               </Col>
             </Row>

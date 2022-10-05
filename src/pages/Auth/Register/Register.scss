@@ -4,8 +4,8 @@
   text-align: center;
 
   &-logo {
-    max-width: 20.5rem;
-    margin: 0 auto 1rem;
+    max-width: 205px;
+    margin: 0 auto 10px;
 
     img {
       width: 100%;
@@ -13,11 +13,11 @@
   }
 
   &-description {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 15px;
+    margin-bottom: 20px;
 
     big {
-      font-size: 2rem;
+      font-size: 20px;
     }
 
     span {
@@ -26,12 +26,12 @@
   }
 
   &-submit {
-    margin: 2.2rem 0 3.2rem;
+    margin: 22px 0 32px;
   }
 
   &-third-party {
     position: relative;
-    margin: 3.2rem 0;
+    margin: 32px 0;
 
     &::before {
       position: absolute;
@@ -47,10 +47,10 @@
     span {
       position: relative;
       z-index: 1;
-      font-size: 1.4rem;
+      font-size: 14px;
       color: $alto;
       background: $white;
-      padding: .8rem;
+      padding: 8px;
     }
   }
 
@@ -64,6 +64,6 @@
   }
 
   &-socials {
-    margin-bottom: 2.4rem;
+    margin-bottom: 24px;
   }
 }

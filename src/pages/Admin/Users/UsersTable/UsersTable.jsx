@@ -19,7 +19,6 @@ const UsersTable = ({ params, onReload, onPageChange, onTableChange }) => {
   const dispatch = useDispatch();
 
   const getUsersState = useSelector((state) => state.userReducer.getUsersResponse);
-  const getUsersLoading = useSelector((state) => state.loadingReducer[EGetUsersAction.GET_USERS]);
   const updateUserLoading = useSelector((state) => state.loadingReducer[EUpdateUserAction.UPDATE_USER]);
 
   const total = getUsersState?.meta?.pagination?.total;
@@ -145,7 +144,7 @@ const UsersTable = ({ params, onReload, onPageChange, onTableChange }) => {
         </Row>
       </div>
       <div className="UsersTable-table">
-        <Table columns={columns} dataSources={dataSources} loading={getUsersLoading} onChange={onTableChange} />
+        <Table columns={columns} dataSources={dataSources} onChange={onTableChange} />
       </div>
       <div className="UsersTable-pagination flex justify-end">
         <Pagination

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { Layout, Menu } from 'antd';
 import { navigate } from '@reach/router';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 import { dataSidebar } from './Sidebar.data';
 import './Sidebar.scss';
-import classNames from 'classnames';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -24,13 +24,16 @@ const Sidebar = () => {
       <Menu theme="light" mode="inline">
         {dataSidebar.map((item) => (
           <SubMenu
+            key={item.key}
             title={item.title}
             icon={item.icon}
             disabled={item.disabled}
             onTitleClick={() => handleClickMenuItem(item)}
           >
             {item.children.map((subItem) => (
-              <Menu.Item onClick={() => handleClickMenuItem(subItem)}>{subItem.title}</Menu.Item>
+              <Menu.Item key={subItem.key} onClick={() => handleClickMenuItem(subItem)}>
+                {subItem.title}
+              </Menu.Item>
             ))}
           </SubMenu>
         ))}
