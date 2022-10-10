@@ -31,6 +31,7 @@ const Register = () => {
       fullname: values?.fullname,
       password: values?.password,
       username: values?.username,
+      email: values?.email,
     };
 
     dispatch(registerAppAction.request({ body }, handleRegisterAppSuccess));

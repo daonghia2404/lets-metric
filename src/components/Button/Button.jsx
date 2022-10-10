@@ -19,13 +19,19 @@ const Button = ({
   shape,
   link,
   disabled,
+  target,
   icon,
   loading,
   onClick,
 }) => {
   const handleClickButton = () => {
-    if (link) navigate(link);
-    else onClick?.();
+    if (link) {
+      if (target) {
+        window.open(link, target);
+      } else {
+        navigate(link);
+      }
+    } else onClick?.();
   };
 
   return (

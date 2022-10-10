@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import AuthForm from '@/containers/AuthForm';
 import Input from '@/components/Input';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { LayoutPaths, Paths } from '@/pages/routers';
 import Button from '@/components/Button';
 import { EResetPasswordAction, resetPasswordAction } from '@/redux/actions';
@@ -22,11 +22,11 @@ const ResetPassword = () => {
 
   const handleSubmit = (values) => {
     const body = { ...values };
-    dispatch(resetPasswordAction.request({ body }, handleResetPasswordSuccess));
+    dispatch(resetPasswordAction.request({ body }, () => handleResetPasswordSuccess(body)));
   };
 
-  const handleResetPasswordSuccess = () => {
-    showNotification(ETypeNotification.INFO, 'Request Successfully. Please check your mail to reset password');
+  const handleResetPasswordSuccess = (values) => {
+    navigate(`${LayoutPaths.Auth}${Paths.CheckYourEmail}`, { state: { email: values.email } });
   };
 
   return (
